@@ -2,42 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOM Challenges</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background: #f9f9f9;
-      color: #333;
-    }
-    h1 {
-      color: #007acc;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 10px 0;
-    }
-    a {
-      color: #007acc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My DOM Challenges</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <h1>🚀 My DOM Challenges</h1>
-  <ul>
-    <li><a href="./Toggle Bulb/" target="_blank">💡 Toggle Bulb</a></li>
-    <!-- Add more links as you create new challenges -->
-    <!-- Example: -->
-    <!-- <li><a href="./calculator/" target="_blank">🧮 Simple Calculator</a></li> -->
-  </ul>
+<body class="bg-gray-100 text-gray-800">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-4xl font-bold mb-4 text-center">🌟 My DOM Challenges</h1>
+    <p class="text-center text-gray-600 mb-8">Click below to view live apps built with JavaScript and TailwindCSS</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Example Card -->
+      <a href="./Toggle%20Bulb/index.html" class="block bg-white p-5 rounded-lg shadow hover:shadow-xl transition">
+        <h2 class="text-xl font-semibold">💡 Toggle Bulb</h2>
+        <p class="text-sm text-gray-500">A small DOM challenge using Tailwind & JS</p>
+      </a>
+      
+      <!-- Add more cards below -->
+    </div>
+  </div>
 </body>
 </html>
