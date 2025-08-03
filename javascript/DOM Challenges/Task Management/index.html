@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./src/output.css" rel="stylesheet">
+    <title>Task Management</title>
+</head>
+<body class=" h-screen flex justify-center items-start">
+    <main id="main" class="w-96 p-5 flex flex-col">
+        <div class="w-full flex gap-2 mb-5">
+            <input id="input-field" class="bg-white p-2 flex-grow rounded-md outline-0 border-1" required maxlength="24" type="text" placeholder="Enter Your Task">
+            <button id="add-btn" class="bg-blue-500 px-6 py-2 cursor-pointer rounded-md text-white font-bold">Add</button>
+        </div>
+
+        <section id="todo-items" class="bg-white w-full">
+            
+        </section>
+        <section class="flex justify-between">
+            <p class="text-md">Total Tasks: <span id="total-tasks">0</span></p>
+            <p class="text-md">Tasks Done: <span id="tasks-done">0</span></p>
+        </section>
+        <!-- Task completed message -->
+        <div class="w-full bg-green-200 mt-2 p-2 hidden" id="tasks-done-message">
+             <p class="text-center text-green-700 text-lg font-bold">All tasks are done</p>
+        </div>
+        <!-- Enter your task message -->
+         <div class="w-full bg-blue-200 mt-2 p-2 hidden" id="enter-your-message">
+             <p class="text-center text-blue-500 text-lg font-bold">Please enter a new task</p>
+        </div>
+        <!-- Task already exists -->
+       <div class="w-full bg-red-200 mt-2 p-2 hidden" id="task-exist-message">
+             <p class="text-center text-red-500 text-lg font-bold">Task already exists</p>
+        </div>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
