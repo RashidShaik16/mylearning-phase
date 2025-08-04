@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./src/output.css" rel="stylesheet">
+    <title>TwinTime</title>
+</head>
+<body class=" h-screen flex justify-center items-center">
+    <main id="main" class="w-96 bg-blue-600 p-5 text-white pb-8 rounded-4xl">
+        <p class="text-3xl font-bold text-center mb-5 font-serif tracking-wider">TwinTime</p>
+        <div class="w-3/4 bg-blue-500 mx-auto flex flex-col items-center rounded-3xl py-10 px-5">
+
+            <div id="clock" class="clock w-58 h-58 relative bg-blue-500 border-8 border-blue-700 rounded-full">
+                <!-- hands -->
+                <div id="hours-hand" class="absolute origin-bottom w-[6px] h-[62px] bg-orange-600 left-1/2 top-1/2 -translate-x-1/2 -translate-y-full rounded-full"></div>
+
+                <div id="minutes-hand" class="absolute origin-bottom w-[5px] h-[88px] bg-blue-300 left-1/2 top-1/2 -translate-x-1/2 -translate-y-full rounded-full z-10"></div>
+
+                <div id="seconds-hand" class="absolute origin-bottom w-[3px] h-[94px] bg-red-500 left-1/2 top-1/2 -translate-x-1/2 -translate-y-full rounded-full z-10"></div>
+
+                <div class="w-5 h-5 rounded-full bg-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20"></div>
+
+                <!-- numbers -->
+                <div class="absolute inset-0">
+                    <div class="number  text-center absolute text-lg text-white font-bold" data-num="1">1</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="2">2</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="3">3</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="4">4</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="5">5</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="6">6</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="7">7</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="8">8</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="9">9</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="10">10</div>
+                    <div class="number text-center absolute text-lg text-white font-bold" data-num="11">11</div>
+                    <div class="number w-fit text-center absolute text-lg text-white font-bold" data-num="12">12</div>
+                </div>
+            </div>
+
+       
+            <div class="w-full h-18 mx-auto bg-yellow-200 mt-6 rounded-2xl flex justify-center items-center">
+                <p id="digital-time" class="font-bold text-3xl text-center text-orange-700"></p>
+            </div>
+            <p id="date" class="mt-2 text-lg font-mono font-bold"></p>
+        </div>
+        
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
