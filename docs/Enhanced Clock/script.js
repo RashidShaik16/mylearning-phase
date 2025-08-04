@@ -44,18 +44,19 @@ setInterval(updateDigitalClock, 1000)
 function updateClock() {
   const now = new Date();
 
-  const seconds = now.getSeconds() + now.getMilliseconds() / 1000;
-  const minutes = now.getMinutes() + seconds / 60;
+  const seconds = now.getSeconds();
+  const minutes = now.getMinutes();
   const hours = now.getHours() % 12 + minutes / 60;
 
-  const secondDeg = seconds * 6;        // 360 / 60
-  const minuteDeg = minutes * 6;        // 360 / 60
-  const hourDeg = hours * 30;           // 360 / 12
+  const secondDeg = seconds * 6;       // 360 / 60
+  const minuteDeg = minutes * 6;       // 360 / 60
+  const hourDeg = hours * 30;          // 360 / 12
 
   document.getElementById("seconds-hand").style.transform = `rotate(${secondDeg}deg)`;
   document.getElementById("minutes-hand").style.transform = `rotate(${minuteDeg}deg)`;
   document.getElementById("hours-hand").style.transform = `rotate(${hourDeg}deg)`;
 }
+
 
 // Function to update digital clock
 function updateDigitalClock() {
