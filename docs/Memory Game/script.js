@@ -91,7 +91,7 @@ function createCard(type) {
   card.setAttribute('onclick', 'flipCard(this)');
 
   card.innerHTML = `
-    <div class="relative w-full h-full transition-transform duration-500 transform-style preserve-3d" data-flipped="false">
+    <div class="relative h-full w-full transition-transform duration-500 transform-style preserve-3d" data-flipped="false">
       <div class="absolute w-full h-full backface-hidden">
         <img src="./images/card-front.jpg" class="w-full h-full object-cover rounded-xl" />
       </div>
