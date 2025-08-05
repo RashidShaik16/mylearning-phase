@@ -93,10 +93,10 @@ function createCard(type) {
   card.innerHTML = `
     <div class="relative w-full h-full transition-transform duration-500 transform-style preserve-3d" data-flipped="false">
       <div class="absolute w-full h-full backface-hidden">
-        <img src="/images/card-front.jpg" class="w-full h-full object-cover rounded-xl" />
+        <img src="./images/card-front.jpg" class="w-full h-full object-cover rounded-xl" />
       </div>
       <div class="absolute w-full h-full rotate-y-180 backface-hidden">
-        <img src="/images/${cardSelectedByUser}/${type}.jpeg" class="w-full h-full object-cover rounded-xl" />
+        <img src="./images/${cardSelectedByUser}/${type}.jpeg" class="w-full h-full object-cover rounded-xl" />
       </div>
     </div>
   `;
