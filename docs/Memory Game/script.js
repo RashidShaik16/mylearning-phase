@@ -86,7 +86,7 @@ deck() //For initial decks
 
 function createCard(type) {
   const card = document.createElement('div');
-  card.className = 'w-24 h-24 perspective cursor-pointer';
+  card.className = 'w-22 h-22 perspective cursor-pointer mx-auto';
   card.setAttribute('data-type', type);
   card.setAttribute('onclick', 'flipCard(this)');
 
