@@ -86,17 +86,17 @@ deck() //For initial decks
 
 function createCard(type) {
   const card = document.createElement('div');
-  card.className = 'w-24 h-24 perspective cursor-pointer';
+  card.className = 'w-20 h-20 perspective cursor-pointer mx-auto';
   card.setAttribute('data-type', type);
   card.setAttribute('onclick', 'flipCard(this)');
 
   card.innerHTML = `
-    <div class="relative w-full h-full transition-transform duration-500 transform-style preserve-3d" data-flipped="false">
+    <div class="relative h-full w-full transition-transform duration-500 transform-style preserve-3d" data-flipped="false">
       <div class="absolute w-full h-full backface-hidden">
-        <img src="/images/card-front.jpg" class="w-full h-full object-cover rounded-xl" />
+        <img src="./images/card-front.jpg" class="w-full h-full object-cover rounded-xl" />
       </div>
       <div class="absolute w-full h-full rotate-y-180 backface-hidden">
-        <img src="/images/${cardSelectedByUser}/${type}.jpeg" class="w-full h-full object-cover rounded-xl" />
+        <img src="./images/${cardSelectedByUser}/${type}.jpeg" class="w-full h-full object-cover rounded-xl" />
       </div>
     </div>
   `;
@@ -165,7 +165,7 @@ function showWinMessage() {
   timer.classList.add("hidden")
   document.getElementById('win-message').innerHTML = `
     <p class="mb-3 px-2 py-1 bg-yellow-400">🎉 You Win! Time taken: ${timeTaken}</p>
-    <button onclick="restartGame()" class="ml-4 bg-blue-600 px-8 py-3 rounded-2xl text-white font-bold cursor-pointer">Play Again</button>
+    <button onclick="restartGame()" class="ml-4 mb-2 bg-blue-600 px-6 py-2 rounded-2xl text-white font-bold cursor-pointer">Play Again</button>
   `;
   document.getElementById('win-message').classList.remove('hidden');
 }

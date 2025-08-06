@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./src/output.css" rel="stylesheet">
-    <title>Toggle Bulb</title>
+    <title>Memory Game</title>
 </head>
-<body class=" h-screen flex justify-center items-center bg-gray-700">
-    <main id="main" class="border-4 border-yellow-200 rounded-2xl p-5 bg-gray-600 flex flex-col items-center">
-        <h1 class="text-5xl my-5 text-yellow-300 font-mono font-bold">Memory Game</h1>
-         <div id="card-grid" class="grid grid-cols-4 gap-2 justify-center">
+<body class=" h-screen flex justify-center p-2 items-center bg-gray-700 box-border">
+    <main id="main" class="border-4 w-96 box-border border-yellow-200 rounded-2xl px-1.5 pt-0 pb-2 bg-gray-600 flex flex-col items-center">
+        <h1 class="text-4xl my-5 text-yellow-300 font-mono font-bold">Memory Game</h1>
+         <div id="card-grid" class="grid grid-cols-4 gap-1.5 p-2">
             <!-- Cards deck here -->
         </div>
 
-        <div id="card-selection-container">
-            <h1 class="text-2xl mt-5 text-white font-serif font-bold mr-auto">Choose your card type</h1>
+        <div id="card-selection-container" class="p-1">
+            <h1 class="text-xl mt-5 text-white font-serif font-bold mr-auto">Choose your card type</h1>
             <div id="card-deck-type" class="w-full py-4 flex gap-1.5">
-                <button class="bg-yellow-700 text-yellow-200 px-4 py-2 rounded-xl font-bold text-xl cursor-pointer hover:bg-yellow-700 hover:text-yellow-200 option" id="sports" onclick="getCardType(this)">Sports</button>
-                <button class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-xl font-bold text-xl cursor-pointer hover:bg-yellow-700 hover:text-yellow-200 option" id="animals" onclick="getCardType(this)">Animals</button>
-                <button class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-xl font-bold text-xl cursor-pointer hover:bg-yellow-700 hover:text-yellow-200 option" id="fruits" onclick="getCardType(this)">Fruits</button>
-                <button class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-xl font-bold text-xl cursor-pointer hover:bg-yellow-700 hover:text-yellow-200 option" id="celebrities" onclick="getCardType(this)">Celebrities</button>
+                <button class="bg-yellow-700 text-yellow-200 px-4 py-2 rounded-xl font-bold text-md cursor-pointer hover:bg-yellow-700 hover:text-yellow-200 option" id="sports" onclick="getCardType(this)">Sports</button>
+                <button class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-xl font-bold text-md cursor-pointer hover:bg-yellow-700 hover:text-yellow-200 option" id="animals" onclick="getCardType(this)">Animals</button>
+                <button class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-xl font-bold text-md cursor-pointer hover:bg-yellow-700 hover:text-yellow-200 option" id="fruits" onclick="getCardType(this)">Fruits</button>
+                <button class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-xl font-bold text-md cursor-pointer hover:bg-yellow-700 hover:text-yellow-200 option" id="celebrities" onclick="getCardType(this)">Actors</button>
             </div>
         </div>
         <!-- Start button -->
-        <button class="text-3xl font-mono bg-blue-600 px-8 py-3 rounded-2xl text-white font-bold cursor-pointer" id="start">Start</button>
+        <button class="text-xl font-mono bg-blue-600 px-8 py-2 mb-2 rounded-2xl text-white font-bold cursor-pointer" id="start">Start</button>
 
-        <div id="timer" class="text-xl w-38 font-semibold text-center my-4 p-4 bg-red-400 rounded-2xl hidden">
+        <div id="timer" class="text-xl w-36 font-bold text-center my-4 p-2 bg-red-400 rounded-2xl hidden">
             <p class="p-1">Time: <span id="time">00:00</span></p>
         </div>
 
-        <div id="win-message" class="hidden text-center text-2xl font-bold text-green-600 mt-6">
+        <div id="win-message" class="hidden text-center text-xl font-bold text-green-600 mt-6">
             <!-- 🎉 You Win! <button onclick="restartGame()" class="ml-4 bg-blue-600 px-8 py-3 rounded-2xl text-white font-bold cursor-pointer">Play Again</button> -->
         </div>
 
