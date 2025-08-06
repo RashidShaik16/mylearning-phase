@@ -86,7 +86,7 @@ deck() //For initial decks
 
 function createCard(type) {
   const card = document.createElement('div');
-  card.className = 'w-22 h-22 perspective cursor-pointer mx-auto';
+  card.className = 'w-20 h-20 perspective cursor-pointer mx-auto';
   card.setAttribute('data-type', type);
   card.setAttribute('onclick', 'flipCard(this)');
 
@@ -165,7 +165,7 @@ function showWinMessage() {
   timer.classList.add("hidden")
   document.getElementById('win-message').innerHTML = `
     <p class="mb-3 px-2 py-1 bg-yellow-400">🎉 You Win! Time taken: ${timeTaken}</p>
-    <button onclick="restartGame()" class="ml-4 bg-blue-600 px-8 py-3 rounded-2xl text-white font-bold cursor-pointer">Play Again</button>
+    <button onclick="restartGame()" class="ml-4 mb-2 bg-blue-600 px-6 py-2 rounded-2xl text-white font-bold cursor-pointer">Play Again</button>
   `;
   document.getElementById('win-message').classList.remove('hidden');
 }
