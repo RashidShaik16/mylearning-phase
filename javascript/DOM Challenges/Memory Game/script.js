@@ -13,6 +13,13 @@ const arraySets = {
   fruits : ["apple", "orange", "banana", "kiwi", "watermelon", "mango", "pineapple", "strawberry",]
 }
 
+// load audio
+
+
+
+
+
+
 let flippedCards = []     // array to track the 2 currently flipped cards
 let lockBoard = false     // prevents interaction while flipping back unmatched cards
 let matchedPairs = 0
@@ -114,6 +121,7 @@ function flipCard(card) {
   if (flippedCards.length === 2) return;
 
   // Flip the card
+  playTapSound()
   flipper.classList.add('rotate-y-180');
   flipper.setAttribute('data-flipped', 'true');
 
@@ -126,9 +134,11 @@ function flipCard(card) {
     const type2 = card2.getAttribute('data-type');
 
     if (type1 === type2) {
+          playMatchSound()
         matchedPairs++
 
         if(matchedPairs === pairs){
+          playWinSound()
           clearInterval(timerInterval)
           setTimeout(() => {
             showWinMessage()
@@ -190,8 +200,22 @@ function formatTime(seconds) {
 
 
 
+// tap audio function
+
+function playTapSound() {
+  const tap = new Audio("./sounds/tap.mp3")
+  tap.play()
+}
 
 
+function playMatchSound() {
+  const match = new Audio("./sounds/match.mp3")
+  match.play()
+}
 
-
+function playWinSound() {
+  const win = new Audio("./sounds/win.mp3")
+  win.play()
+}
+    
     
