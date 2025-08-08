@@ -13,10 +13,6 @@ const arraySets = {
   fruits : ["apple", "orange", "banana", "kiwi", "watermelon", "mango", "pineapple", "strawberry",]
 }
 
-// load audio
-
-
-
 
 
 
@@ -200,7 +196,7 @@ function formatTime(seconds) {
 
 
 
-// tap audio function
+//Sound effect functions
 
 function playTapSound() {
   const tap = new Audio("./sounds/tap.mp3")
