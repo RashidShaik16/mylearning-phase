@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="./src/output.css" rel="stylesheet">
+    <title>KBC</title>
+</head>
+<body class=" h-screen flex justify-center p-2 items-center bg-gray-700 box-border">
+    <main id="main" class="relative w-96 h-[680px] gap-3 flex flex-col items-center justify-evenly box-border border-2 bg-[url(/images/background.png)] bg-cover bg-center">
+        <!-- <div id="curtains-container" class="absolute w-full h-full"> -->
+            <div id="curtain-l" class="absolute bg-[url(/images/curtain.png)] bg-cover w-[50%] h-full z-10 transition-all duration-[4000ms] ease-linear left-0"></div>
+            <div id="curtain-r" class="absolute bg-[url(/images/curtain.png)] bg-cover w-[50%] h-full z-10 transition-all duration-[4000ms] ease-linear right-0"></div>
+            
+        <!-- </div> -->
+        <div id="logo" class="w-32 h-32 bg-white rounded-full bg-[url(/images/kbc-logo.png)] bg-cover bg-center"></div>
+        <div id="stats-container" class="w-full h-90 flex justify-between">
+            <div id="helpline-container" class="w-16 h-full flex flex-col items-center gap-4">
+                <div class="bg-red-300 w-12 h-12 flex justify-center items-center cursor-pointer">
+                    <i class="fa-solid fa-phone-volume text-2xl text-red-600"></i>
+                </div>
+                <div class="bg-green-300 w-12 h-12 flex justify-center items-center cursor-pointer">
+                    <i class="fa-solid fa-chart-simple text-2xl text-green-600"></i>
+                </div>
+                <div class="bg-green-300 w-12 h-12 flex justify-center items-center cursor-pointer">
+                    <p class="text-md text-green-600 font-bold">50:50</p>
+                </div>
+                
+            </div>
+            <div id="timer" class="w-24 h-24 rounded-full bg-blue-800 border-5 border-blue-500 flex justify-center items-center">
+                <p id="timer-count" class="text-5xl text-red-500 font-bold">25</p>
+            </div>
+            <div id="prize-money-container" class="h-full text-white text-right flex flex-col gap-1">
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">1 crore</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">50,00,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">25,00,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">12,50,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">6,40,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">3,20,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">1,60,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">80,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">40,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">20,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">10,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">5,000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">3000</p>
+                <p class="bg-green-600 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">2000</p>
+                <p class="bg-gray-800 px-2 text-[14.5px] rounded-tl-lg rounded-bl-lg">1000</p>
+            </div>
+        </div>
+        <div class="w-15/16 h-30 flex flex-col items-center p-2">
+            <p id="question" class="text-white font-serif"><span id="question-num">1. </span>What is the capital of India</p>
+            <div id="answers-container" class="grid grid-cols-2 w-full mt-2 px-4 gap-2">
+                <p id="answer" class="bg-gray-500 text-md p-1 text-center rounded-full cursor-pointer">Rajasthan</p>
+                <p id="answer" class="bg-green-400 text-md p-1 text-center rounded-full cursor-pointer">New Delhi</p>
+                <p id="answer" class="bg-orange-500 text-md p-1 text-center rounded-full cursor-pointer">Punjab</p>
+                <p id="answer" class="bg-gray-500 text-md p-1 text-center rounded-full cursor-pointer">Hyderabad</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
