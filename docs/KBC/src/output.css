@@ -207,9 +207,6 @@
   .grid {
     display: grid;
   }
-  .table {
-    display: table;
-  }
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
@@ -240,9 +237,6 @@
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
-  .w-15 {
-    width: calc(var(--spacing) * 15);
-  }
   .w-15\/16 {
     width: calc(15/16 * 100%);
   }
@@ -270,14 +264,8 @@
   .w-full {
     width: 100%;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -317,10 +305,6 @@
   }
   .rounded-bl-lg {
     border-bottom-left-radius: var(--radius-lg);
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-2 {
     border-style: var(--tw-border-style);
@@ -371,9 +355,6 @@
   }
   .bg-\[url\(\.\.\/public\/assets\/images\/kbc-logo\.png\)\] {
     background-image: url(../public/assets/images/kbc-logo.png);
-  }
-  .bg-\[url\(\.\.\/public\/assets\/images\/logo\.png\)\] {
-    background-image: url(../public/assets/images/logo.png);
   }
   .bg-cover {
     background-size: cover;
@@ -429,13 +410,6 @@
   .text-white {
     color: var(--color-white);
   }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
   .transition-all {
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -445,16 +419,9 @@
     --tw-duration: 3600ms;
     transition-duration: 3600ms;
   }
-  .duration-\[4000ms\] {
-    --tw-duration: 4000ms;
-    transition-duration: 4000ms;
-  }
   .ease-linear {
     --tw-ease: linear;
     transition-timing-function: linear;
-  }
-  .backface-hidden {
-    backface-visibility: hidden;
   }
 }
 @layer utilities {
@@ -477,11 +444,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -495,7 +457,6 @@
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
       --tw-font-weight: initial;
-      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-ease: initial;
     }
