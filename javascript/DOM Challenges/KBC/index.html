@@ -58,6 +58,17 @@
                         <button id="helpline-no-btn" class="px-3 py-1 bg-red-300 cursor-pointer">No</button>
                     </div>
                 </div>
+                <div class="w-full px-3 py-2 bg-green-300 flex-col items-center rounded-md hidden" id="checkpoint-message">
+                    <p class="text-xl font-bold text-green-700 text-center">Congratulations...</p>
+                    <p class="text-md font-bold text-red-600 text-center">Prize Money : <span id="amount" class="text-red-600"></span></p>
+                </div>
+                <div id="prize-money-won" class="w-full px-3 py-2 bg-green-300 flex-col items-center rounded-md hidden">
+                    <p class="text-lg font-bold text-green-600 text-center">Your Prize Money : <span id="prize-money-won-text" class="text-2xl"></span></p>
+                </div>
+
+                <div class="w-full px-3 py-2 bg-red-300 hidden flex-col items-center rounded-md" id="timeup-message">
+                    <p class="text-xl font-bold text-red-700 text-center">Time Up...</p>
+                </div>
 
                 <button id="start-btn" class="text-white bg-orange-500 font-bold px-5 py-2 rounded-full cursor-pointer hidden">Start</button>
             </div>
