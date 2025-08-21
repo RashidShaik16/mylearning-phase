@@ -16,7 +16,8 @@ const sounds = {
   kbcCorrectAnswer : new Audio("./public/assets/sounds/kbc-correct-answer.mp3"),
   kbcHelplineSuspense : new Audio("./public/assets/sounds/kbc-suspense1.mp3"),
   kbcRinging : new Audio("./public/assets/sounds/kbc-ringing.mp3"),
-  kbcFiftyFifty : new Audio("./public/assets/sounds/kbc-fifty-fifty.mp3")
+  kbcFiftyFifty : new Audio("./public/assets/sounds/kbc-fifty-fifty.mp3"),
+  kbcHooter : new Audio("./public/assets/sounds/kbc-hooter.mp3")
 
 }
 const curtainL = document.getElementById("curtain-l")
@@ -39,6 +40,11 @@ const helplineOptedText = document.getElementById("helpline-opted-text")
 const helplineYesBtn = document.getElementById("helpline-yes-btn")
 const helplineNoBtn = document.getElementById("helpline-no-btn")
 const timerStartsNow = document.getElementById("timer-starts-now")
+const checkpointConfirmation = document.getElementById("checkpoint-message")
+const amount = document.getElementById("amount")
+const timeupMessage = document.getElementById("timeup-message")
+const prizeMoneyWon = document.getElementById("prize-money-won")
+let prizeMoneyWonText = document.getElementById("prize-money-won-text")
 
 
 
@@ -52,6 +58,8 @@ let timerFunction
 let highlightAudience
 let isTimerRunning = false
 let helplineOptionOpted = undefined
+let isHelplineUsed = false
+let CheckPointsReached = 0
 
 // Open curtains
 curtainL.addEventListener("click", () => {
@@ -81,6 +89,7 @@ helplineContainer.addEventListener("click", (e) => {
    helplineOptedText.textContent = `You want to opt ${helplineOptionOpted}`
    helplineOptionConfirmation.style.display = "flex"
    helplineOptionsContainer.style.pointerEvents = "none"
+   helplineContainer.style.pointerEvents = "none"
    slider.style.pointerEvents = "none"
   !isTimerRunning && clearInterval(timerFunction)
   
@@ -100,7 +109,7 @@ helplineYesBtn.addEventListener("click", () => {
 
      if(helplineOptionOpted === "phone-a-friend"){
         sounds.kbcRinging.play()
-        
+        isHelplineUsed = true
         setTimeout(() => {sounds.kbcHelplineSuspense.play()}, 2000) 
         helplineDisplay.style.display = "flex"
         const callAFriend = document.getElementById("call-a-friend")
@@ -132,6 +141,7 @@ helplineYesBtn.addEventListener("click", () => {
 
     else if(helplineOptionOpted === "audience-poll"){
       sounds.kbcAudiencePoll.play()
+      isHelplineUsed = true
       helplineDisplay.style.display = "flex"
       audienceContainer.style.display = "block"
       highlightAudience = setInterval(highlightRandom, 600)
@@ -140,6 +150,7 @@ helplineYesBtn.addEventListener("click", () => {
 
     else if(helplineOptionOpted === "50:50"){
         sounds.kbcFiftyFifty.play()
+        isHelplineUsed = true
         helplineOptionConfirmation.style.display = "none"
         const currentQuestion = finalSet[currentQuestionIndex-1]
         const currentOptions = currentQuestion.options.map(option => option.text)
@@ -159,6 +170,7 @@ helplineYesBtn.addEventListener("click", () => {
         
         slider.style.pointerEvents ="auto"
         helplineOptionsContainer.style.pointerEvents = "none"
+        helplineContainer.style.pointerEvents = "none"
         const fiftyFiftyOption = document.getElementById("50:50")
         fiftyFiftyOption.style.pointerEvents = "none"
         fiftyFiftyOption.style.opacity = 0.5
@@ -176,6 +188,7 @@ helplineNoBtn.addEventListener("click", () => {
   sounds.kbcTimer.play()
    helplineOptionConfirmation.style.display = "none"
    helplineOptionsContainer.style.pointerEvents = "auto"
+   helplineContainer.style.pointerEvents = "auto"
    slider.style.pointerEvents = "auto"
    timerFunction = setInterval(tick, 1000)
 })
@@ -194,10 +207,11 @@ const finalSet = [...fiveEasyQuestions, ...fiveMediumQuestions, ...fiveHardQuest
 
 // function to get five random questions from each level
 function getFiveRandomQuestions(questionsArray){
-  const fiveFinalQuestions = [];
+  const fiveFinalQuestions = []
 
   while (fiveFinalQuestions.length < 5) {
-    const index = Math.floor(Math.random() * questionsArray.length);
+    const index = Math.floor(Math.random() * questionsArray.length)
+    console.log(questionsArray.length, index)
     const question = questionsArray[index];
 
     if (!fiveFinalQuestions.includes(question)) {
@@ -243,6 +257,7 @@ startBtn.addEventListener("click", () => {
   startBtn.textContent = "Next question"
   startBtn.style.display = "none"
   isTimerRunning = true
+  isHelplineUsed = false
   optionMessage.classList.remove("bg-green-200", "text-green-900")
   // slides the next question and bring into the view
     if (currentQuestionIndex <= totalQuestions) {
@@ -295,8 +310,10 @@ function typeQuestionText(element, delay,  startDelay) {
 
   setTimeout(() => {
     slider.style.pointerEvents = "auto"
+    helplineOptionsContainer.style.pointerEvents = "auto"
+    helplineContainer.style.pointerEvents = "auto"
   }, 3000)
-  helplineOptionsContainer.style.pointerEvents = "auto"
+  
 }
 
 // function to get the selected option
@@ -309,6 +326,7 @@ function optionSelected(option) {
   optionContent = option.textContent
   !isTimerRunning && clearInterval(timerFunction)
   helplineOptionsContainer.style.pointerEvents = "none"
+  helplineContainer.style.pointerEvents = "none"
   slider.style.pointerEvents = "none"
   
 
@@ -336,15 +354,19 @@ yesBtn.addEventListener("click", () => {
   confirmationMessage.style.display = "none"
   startBtn.style.display = "none"
   !isTimerRunning && (timer.style.display = "none")
-  timerCount.textContent = 15
-  seconds = 14
+  CheckPointsReached < 4 ? timerCount.textContent = 15 : timerCount.textContent = 20
+  console.log(timerCount.textContent)
+  CheckPointsReached < 4 ? seconds = 14 : seconds = 19
   slider.style.pointerEvents = "none"
   helplineOptionsContainer.style.pointerEvents = "none"
+  helplineContainer.style.pointerEvents = "none"
 
   // reveals answer after 1.5 seconds
   setTimeout(() => {
     const targetQuestion = finalSet[currentQuestionIndex - 1]
   if(currentSelectedOption.textContent === targetQuestion.answer){
+    CheckPointsReached++
+    CheckPointsReached === 5 ? checkPoint5() : CheckPointsReached === 10 ? checkPoint10() : CheckPointsReached === 15 ? checkPoint15() : null
     sounds.kbcLock.pause()
     sounds.kbcLock.currentTime = 0
     sounds.kbcCorrectAnswer.play()
@@ -364,9 +386,17 @@ yesBtn.addEventListener("click", () => {
    })
     
    prizeMoneyIndex--
+
    setTimeout(()=>{
     optionMessage.style.display = "none"
-    startBtn.style.display = "block"
+    CheckPointsReached < 15 && (startBtn.style.display = "block")
+    if(CheckPointsReached === 15){
+      prizeMoneyWonText.textContent = amount.textContent
+      prizeMoneyWon.style.display = "flex"
+      checkpointConfirmation.style.display = "none"
+    } else {
+      checkpointConfirmation.style.display = "none"
+    }
    }, 5000)
    
    timer.style.display = "none"
@@ -385,6 +415,16 @@ yesBtn.addEventListener("click", () => {
         p.classList.add("bg-green-500")
       }
     })
+
+    if(CheckPointsReached >= 5){
+          setTimeout(() => {
+             timeupMessage.style.display = "none"
+              prizeMoneyWonText.textContent = amount.textContent
+              prizeMoneyWon.style.display = "flex"
+              optionMessage.style.display = "none"
+          }, 2000)
+        } 
+
     setTimeout(() => {
        curtainL.style.width = "50%"
        curtainR.style.width = "50%"
@@ -402,12 +442,16 @@ yesBtn.addEventListener("click", () => {
 
 noBtn.addEventListener("click", () => {
   sounds.kbcTimer.play()
+  isTimerRunning = true
   confirmationMessage.style.display = "none"
   currentSelectedOption.classList.remove("bg-orange-500")
   currentSelectedOption.classList.add("bg-blue-600")
   timerFunction = setInterval(tick, 1000)
   timer.style.display = "flex"
-  helplineOptionsContainer.style.pointerEvents = "auto"
+  if(!isHelplineUsed && isTimerRunning){
+      helplineOptionsContainer.style.pointerEvents = "auto"
+      helplineContainer.style.pointerEvents = "auto"
+  }
   slider.style.pointerEvents = "auto"
 })
 
@@ -415,9 +459,31 @@ noBtn.addEventListener("click", () => {
 // Timer callback function
 function tick() {
   if(seconds < 0){
+        sounds.kbcTimer.pause()
+        sounds.kbcHooter.play()
         timer.style.display = "none"
+        slider.style.pointerEvents = "none"
+        helplineContainer.style.pointerEvents = "none"
+        helplineOptionsContainer.style.pointerEvents = "none"
+        timeupMessage.style.display = "flex"
         seconds = 15
         clearInterval(timerFunction)
+
+        if(CheckPointsReached >= 5){
+          setTimeout(() => {
+             timeupMessage.style.display = "none"
+              prizeMoneyWonText.textContent = amount.textContent
+              prizeMoneyWon.style.display = "flex"
+          }, 2000)
+        }
+
+        setTimeout(() => {
+        curtainL.style.width = "50%"
+        curtainR.style.width = "50%"
+        curtainL.style.pointerEvents = "none"
+        curtainR.style.pointerEvents = "none"
+        sounds.kbcIntro.play()
+    }, 4000)
       }
       timerCount.innerText = seconds
       seconds--
@@ -480,7 +546,21 @@ function displayPollResults(){
     }, 6000)
 }
 
+// checkpoints functions
+function checkPoint5(){
+  checkpointConfirmation.style.display = "flex"
+  amount.textContent = "10,000"
+}
 
+function checkPoint10(){
+  checkpointConfirmation.style.display = "flex"
+  amount.textContent = "3,20,000"
+}
+
+function checkPoint15(){
+  checkpointConfirmation.style.display = "flex"
+  amount.textContent = "1 Crore"
+}
 
 // Inital rendering
 
