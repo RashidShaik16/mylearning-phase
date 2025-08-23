@@ -10,7 +10,12 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-  <link href="./src/output.css" rel="stylesheet">
+  <!-- preloading images to avoid latency -->
+    <link rel="preload" href="./public/assets/images/background.png" as="image">
+    <link rel="preload" href="./public/assets/images/curtain.png" as="image">
+    <link rel="preload" href="./public/assets/images/helpline.png" as="image">
+    <link rel="preload" href="./public/assets/images/kbc-logo.png" as="image">
+    <link href="./src/output.css" rel="stylesheet">
     <title>KBC</title>
 </head>
 <body class=" h-screen flex justify-center p-2 items-center bg-gray-700 box-border">
@@ -40,7 +45,7 @@
             <div id="display-container" class="w-1/2 flex flex-col justify-start items-center gap-2">
                 <div class="w-24 h-24">
                     <div id="timer" class="w-full h-full rounded-full hidden justify-center items-center bg-blue-800 border-blue-500 border-5">
-                        <p id="timer-count" class="text-5xl text-red-500 font-bold">15</p>
+                        <p id="timer-count" class="text-5xl text-red-500 font-bold">20</p>
                     </div>
                 </div>
 
@@ -135,9 +140,9 @@
                     <p id="friend-answer" class="text-sm mt-3 text-orange-400"></p>
                 </div>
 
-                <div id="call-a-friend-6" class="bg-amber-300 px-3 py-2 mt-2 hidden">
-                    <p class="text-xl font-bold text-amber-700 text-center">Your Timer starts now</p>
-                </div>
+                <!-- <div id="call-a-friend-6" class="bg-amber-300 px-3 py-2 mt-2 hidden">
+                    <p id="timer-alert" class="text-xl font-bold text-amber-700 text-center">Your Timer starts now</p>
+                </div> -->
             </div>
 
             <!-- Audience Poll -->
@@ -186,13 +191,13 @@
                         <div class="result-bar w-0 h-2 rounded-full bg-orange-500"></div>
                     </div>             
                 </div>
-                <div id="timer-starts-now" class="bg-amber-300 px-3 py-2 mt-2 hidden">
+                <!-- <div id="timer-starts-now" class="bg-amber-300 px-3 py-2 mt-2 hidden">
                     <p class="text-xl font-bold text-amber-700 text-center">Your Timer starts now</p>
-                </div>
+                </div> -->
              </div>
          </div>
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="./script.js" type="module"></script>
 </body>
 </html>

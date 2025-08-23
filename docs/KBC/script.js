@@ -1,6 +1,7 @@
 import {easyQuestions} from "./data/easyQuestions.js"
 import {mediumQuestions} from "./data/mediumQuestions.js"
 import {hardQuestions} from "./data/hardQuestions.js"
+import { triggerConfetti } from "./confetti.js"
 
 
 // load sound tracks
@@ -17,9 +18,27 @@ const sounds = {
   kbcHelplineSuspense : new Audio("./public/assets/sounds/kbc-suspense1.mp3"),
   kbcRinging : new Audio("./public/assets/sounds/kbc-ringing.mp3"),
   kbcFiftyFifty : new Audio("./public/assets/sounds/kbc-fifty-fifty.mp3"),
-  kbcHooter : new Audio("./public/assets/sounds/kbc-hooter.mp3")
-
+  kbcHooter : new Audio("./public/assets/sounds/kbc-hooter.mp3"),
+  kbcSuspense1 : new Audio("./public/assets/sounds/kbc-suspense1.mp3")
 }
+
+// pre load the audio tracks
+
+Object.entries(sounds).forEach(([key, audio]) => {
+  audio.preload = "auto"
+  audio.load()
+
+  // Listen for when it's fully ready
+  audio.addEventListener("canplaythrough", () => {
+    console.log(`${key} is fully preloaded ✅`)
+  })
+
+  // (Optional) listen for errors
+  audio.addEventListener("error", () => {
+    console.error(`${key} failed to load ❌`)
+  })
+})
+
 const curtainL = document.getElementById("curtain-l")
 const curtainR = document.getElementById("curtain-r")
 const helplineContainer = document.getElementById("helpline-container")
@@ -52,7 +71,7 @@ let currentQuestionIndex = -1
 let currentSelectedOption = undefined
 let optionContent = undefined
 const totalQuestions = 15
-let seconds = 14
+let seconds = 19
 let prizeMoneyIndex = 15
 let timerFunction
 let highlightAudience
@@ -84,6 +103,7 @@ curtainR.addEventListener("click", () => {
 // Audience poll eventListener
 helplineContainer.addEventListener("click", (e) => {
   sounds.kbcTimer.pause()
+  sounds.kbcSuspense1.pause()
    isTimerRunning = false
    helplineOptionOpted = e.target.closest(".helpline").id
    helplineOptedText.textContent = `You want to opt ${helplineOptionOpted}`
@@ -121,8 +141,15 @@ helplineYesBtn.addEventListener("click", () => {
         })
 
         setTimeout(() => {
+          if(CheckPointsReached < 10){
+              timer.style.display = "flex"
+              isTimerRunning && (timerFunction = setInterval(tick, 1000))
+              sounds.kbcTimer.play()
+              sounds.kbcTimer.loop = true
+          } else {
+            sounds.kbcSuspense1.play()
+          }
           sounds.kbcHelplineSuspense.pause()
-          sounds.kbcTimer.play()
           helplineDisplay.style.display = "none"
           callAFriend.style.display = "none"
           slider.style.pointerEvents = "auto"
@@ -136,7 +163,7 @@ helplineYesBtn.addEventListener("click", () => {
           phoneAFriend.querySelector("i").classList.remove("text-green-600")
           phoneAFriend.querySelector("i").classList.add("text-red-600")
           
-        }, 13000)
+        }, 11000)
     }
 
     else if(helplineOptionOpted === "audience-poll"){
@@ -178,19 +205,31 @@ helplineYesBtn.addEventListener("click", () => {
         fiftyFiftyOption.classList.add("bg-red-300")
         fiftyFiftyOption.querySelector("p").classList.remove("text-green-600")
         fiftyFiftyOption.querySelector("p").classList.add("text-red-600")
-        sounds.kbcTimer.play()
-        timerFunction = setInterval(tick, 1000)
+        if(CheckPointsReached < 10){
+          sounds.kbcTimer.play()
+          timerFunction = setInterval(tick, 1000)
+        } else {
+          sounds.kbcSuspense1.play()
+        }
+        
         }, 1500)
     } 
 })
 
 helplineNoBtn.addEventListener("click", () => {
-  sounds.kbcTimer.play()
+  if(CheckPointsReached < 10) {
+    sounds.kbcTimer.play()
+    sounds.kbcSuspense1.pause()
+    timerFunction = setInterval(tick, 1000)
+  } else {
+    sounds.kbcSuspense1.play()
+  }
+  
    helplineOptionConfirmation.style.display = "none"
    helplineOptionsContainer.style.pointerEvents = "auto"
    helplineContainer.style.pointerEvents = "auto"
    slider.style.pointerEvents = "auto"
-   timerFunction = setInterval(tick, 1000)
+   
 })
 
 
@@ -211,7 +250,6 @@ function getFiveRandomQuestions(questionsArray){
 
   while (fiveFinalQuestions.length < 5) {
     const index = Math.floor(Math.random() * questionsArray.length)
-    console.log(questionsArray.length, index)
     const question = questionsArray[index];
 
     if (!fiveFinalQuestions.includes(question)) {
@@ -280,10 +318,17 @@ startBtn.addEventListener("click", () => {
   // display the helpline options and timer after 5 secs 
   setTimeout(() => {
     helplineOptionsContainer.style.transform = `translateX(100%)`
-    timer.style.display = "flex"
-    isTimerRunning && (timerFunction = setInterval(tick, 1000))
-    sounds.kbcTimer.play()
-    sounds.kbcTimer.loop = true
+    if(CheckPointsReached < 10){
+      timer.style.display = "flex"
+      isTimerRunning && (timerFunction = setInterval(tick, 1000))
+      sounds.kbcTimer.play()
+      sounds.kbcTimer.loop = true
+    } else {
+      sounds.kbcSuspense1.play()
+      sounds.kbcSuspense1.loop = true
+      sounds.kbcSuspense1.currentTime = 0
+    }
+    
   }, 5000)
  
 });
@@ -321,6 +366,7 @@ function typeQuestionText(element, delay,  startDelay) {
 function optionSelected(option) {
   sounds.currentTime = 0
   sounds.kbcTimer.pause()
+  sounds.kbcSuspense1.pause()
   isTimerRunning = false
   const allOptions = option.closest(".option-group").querySelectorAll("p")
   optionContent = option.textContent
@@ -349,14 +395,14 @@ function optionSelected(option) {
 yesBtn.addEventListener("click", () => {
   sounds.kbcLock.play()
   sounds.kbcTimer.pause()
+  sounds.kbcSuspense1.pause()
   optionMessage.textContent = `Computer Ji, Please lock option "${optionContent}"`
   optionMessage.style.display = "block"
   confirmationMessage.style.display = "none"
   startBtn.style.display = "none"
   !isTimerRunning && (timer.style.display = "none")
-  CheckPointsReached < 4 ? timerCount.textContent = 15 : timerCount.textContent = 20
-  console.log(timerCount.textContent)
-  CheckPointsReached < 4 ? seconds = 14 : seconds = 19
+  CheckPointsReached < 4 ? timerCount.textContent = 20 : timerCount.textContent = 30
+  CheckPointsReached < 4 ? seconds = 19 : seconds = 29
   slider.style.pointerEvents = "none"
   helplineOptionsContainer.style.pointerEvents = "none"
   helplineContainer.style.pointerEvents = "none"
@@ -368,6 +414,7 @@ yesBtn.addEventListener("click", () => {
     CheckPointsReached++
     CheckPointsReached === 5 ? checkPoint5() : CheckPointsReached === 10 ? checkPoint10() : CheckPointsReached === 15 ? checkPoint15() : null
     sounds.kbcLock.pause()
+    sounds.kbcSuspense1.pause()
     sounds.kbcLock.currentTime = 0
     sounds.kbcCorrectAnswer.play()
     optionMessage.textContent = `"${optionContent}", is the right answer`
@@ -387,6 +434,10 @@ yesBtn.addEventListener("click", () => {
     
    prizeMoneyIndex--
 
+   if(CheckPointsReached === 15){
+    triggerConfetti("main", 11000)
+   }
+
    setTimeout(()=>{
     optionMessage.style.display = "none"
     CheckPointsReached < 15 && (startBtn.style.display = "block")
@@ -394,6 +445,13 @@ yesBtn.addEventListener("click", () => {
       prizeMoneyWonText.textContent = amount.textContent
       prizeMoneyWon.style.display = "flex"
       checkpointConfirmation.style.display = "none"
+      setTimeout(() => {
+       curtainL.style.width = "50%"
+       curtainR.style.width = "50%"
+       curtainL.style.pointerEvents = "none"
+       curtainR.style.pointerEvents = "none"
+       sounds.kbcIntro.play()
+    }, 2000)
     } else {
       checkpointConfirmation.style.display = "none"
     }
@@ -422,7 +480,8 @@ yesBtn.addEventListener("click", () => {
               prizeMoneyWonText.textContent = amount.textContent
               prizeMoneyWon.style.display = "flex"
               optionMessage.style.display = "none"
-          }, 2000)
+              triggerConfetti("main", 8000)
+          }, 3000)
         } 
 
     setTimeout(() => {
@@ -441,13 +500,20 @@ yesBtn.addEventListener("click", () => {
 
 
 noBtn.addEventListener("click", () => {
-  sounds.kbcTimer.play()
-  isTimerRunning = true
+  if(CheckPointsReached < 10){
+    sounds.kbcTimer.play()
+    isTimerRunning = true
+    timerFunction = setInterval(tick, 1000)
+    timer.style.display = "flex"
+  } else {
+    sounds.kbcSuspense1.play()
+    isTimerRunning = true
+  }
+  
   confirmationMessage.style.display = "none"
   currentSelectedOption.classList.remove("bg-orange-500")
   currentSelectedOption.classList.add("bg-blue-600")
-  timerFunction = setInterval(tick, 1000)
-  timer.style.display = "flex"
+  
   if(!isHelplineUsed && isTimerRunning){
       helplineOptionsContainer.style.pointerEvents = "auto"
       helplineContainer.style.pointerEvents = "auto"
@@ -474,7 +540,8 @@ function tick() {
              timeupMessage.style.display = "none"
               prizeMoneyWonText.textContent = amount.textContent
               prizeMoneyWon.style.display = "flex"
-          }, 2000)
+              triggerConfetti("main", 8000)
+          }, 3000)
         }
 
         setTimeout(() => {
@@ -523,17 +590,22 @@ function displayPollResults(){
     })  
     clearInterval(highlightAudience)
     removeHighlight()
-    setTimeout(() => {
-    timerStartsNow.style.display = "block"
-    }, 2000)
+    // setTimeout(() => {
+    // timerStartsNow.style.display = "block"
+    // }, 2000)
 
     setTimeout(() => {
+      if(CheckPointsReached < 10) {
+        sounds.kbcTimer.play()
+        timerFunction = setInterval(tick, 1000)
+      } else {
+        sounds.kbcSuspense1.play()
+      }
       
-      sounds.kbcTimer.play()
       helplineDisplay.style.display = "none"
       audienceContainer.style.display = "none"
       helplineOptionConfirmation.style.display = "none"
-      timerFunction = setInterval(tick, 1000)
+      
       slider.style.pointerEvents = "auto"
       const audiencePollOption = document.getElementById("audience-poll")
       audiencePollOption.style.pointerEvents = "none"
@@ -543,7 +615,7 @@ function displayPollResults(){
       audiencePollOption.querySelector("i").classList.remove("text-green-600")
       audiencePollOption.querySelector("i").classList.add("text-red-600")
     
-    }, 6000)
+    }, 4000)
 }
 
 // checkpoints functions
