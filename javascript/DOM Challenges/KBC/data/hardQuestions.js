@@ -1,277 +1,552 @@
 export const hardQuestions = [
   {
     id: "H01",
-    question: "Which ancient civilization built the city of Machu Picchu?",
+    question: "In computer science, what does 'CAP' stand for?",
     options: [
-      { id: "A", text: "Maya" },
-      { id: "B", text: "Inca" },
-      { id: "C", text: "Aztec" },
-      { id: "D", text: "Olmec" }
+      { id: "A", text: "Consistency, Availability, Partition tolerance" },
+      { id: "B", text: "Control, Access, Protocol" },
+      { id: "C", text: "Cache, API, Process" },
+      { id: "D", text: "Compute, Analyze, Persist" }
     ],
-    answer: "Inca"
+    answer: "Consistency, Availability, Partition tolerance"
   },
   {
     id: "H02",
-    question: "Which is the only sea on Earth with no coastline?",
+    question: "The Sun’s core mainly consists of which element?",
     options: [
-      { id: "A", text: "Sargasso Sea" },
-      { id: "B", text: "Dead Sea" },
-      { id: "C", text: "Caspian Sea" },
-      { id: "D", text: "Baltic Sea" }
+      { id: "A", text: "Helium" },
+      { id: "B", text: "Carbon" },
+      { id: "C", text: "Hydrogen" },
+      { id: "D", text: "Oxygen" }
     ],
-    answer: "Sargasso Sea"
+    answer: "Hydrogen"
   },
   {
     id: "H03",
-    question: "In quantum mechanics, what is the phenomenon where particles appear to communicate instantly over a distance?",
+    question: "Which treaty ended World War I?",
     options: [
-      { id: "A", text: "Quantum Tunneling" },
-      { id: "B", text: "Quantum Entanglement" },
-      { id: "C", text: "Wavefunction Collapse" },
-      { id: "D", text: "Superposition" }
+      { id: "A", text: "Versailles" },
+      { id: "B", text: "Tordesillas" },
+      { id: "C", text: "Paris" },
+      { id: "D", text: "Ghent" }
     ],
-    answer: "Quantum Entanglement"
+    answer: "Versailles"
   },
   {
     id: "H04",
-    question: "What is the only known element that can form a naturally occurring anion of itself?",
+    question: "Which principle states you cannot know certain pairs of physical properties simultaneously?",
     options: [
-      { id: "A", text: "Oxygen" },
-      { id: "B", text: "Chlorine" },
-      { id: "C", text: "Carbon" },
-      { id: "D", text: "Gold" }
+      { id: "A", text: "Pauli exclusion" },
+      { id: "B", text: "Heisenberg uncertainty" },
+      { id: "C", text: "Quantum tunneling" },
+      { id: "D", text: "Superposition" }
     ],
-    answer: "Oxygen"
+    answer: "Heisenberg uncertainty"
   },
   {
     id: "H05",
-    question: "In ancient history, who was known as the 'Father of History'?",
+    question: "Who composed 'Ode to Joy'?",
     options: [
-      { id: "A", text: "Herodotus" },
-      { id: "B", text: "Thucydides" },
-      { id: "C", text: "Pliny the Elder" },
-      { id: "D", text: "Cicero" }
+      { id: "A", text: "Bach" },
+      { id: "B", text: "Mozart" },
+      { id: "C", text: "Beethoven" },
+      { id: "D", text: "Schubert" }
     ],
-    answer: "Herodotus"
+    answer: "Beethoven"
   },
   {
     id: "H06",
-    question: "Which planet in our solar system has a day longer than its year?",
+    question: "Which philosopher is known for the 'categorical imperative'?",
     options: [
-      { id: "A", text: "Mercury" },
-      { id: "B", text: "Venus" },
-      { id: "C", text: "Mars" },
-      { id: "D", text: "Neptune" }
+      { id: "A", text: "Aristotle" },
+      { id: "B", text: "Kant" },
+      { id: "C", text: "Mill" },
+      { id: "D", text: "Nietzsche" }
     ],
-    answer: "Venus"
+    answer: "Kant"
   },
   {
     id: "H07",
-    question: "What is the deepest known point on Earth's seafloor?",
+    question: "A word formed by rearranging letters of another is called?",
     options: [
-      { id: "A", text: "Tonga Trench" },
-      { id: "B", text: "Mariana Trench" },
-      { id: "C", text: "Java Trench" },
-      { id: "D", text: "Puerto Rico Trench" }
+      { id: "A", text: "Palindrome" },
+      { id: "B", text: "Anagram" },
+      { id: "C", text: "Acronym" },
+      { id: "D", text: "Oxymoron" }
     ],
-    answer: "Mariana Trench"
+    answer: "Anagram"
   },
   {
     id: "H08",
-    question: "In computing, what does the acronym 'RSA' stand for in cryptography?",
+    question: "Which element has highest electrical conductivity at room temp?",
     options: [
-      { id: "A", text: "Random Security Algorithm" },
-      { id: "B", text: "Rivest Shamir Adleman" },
-      { id: "C", text: "Rapid Secure Access" },
-      { id: "D", text: "Reliable Secure Authentication" }
+      { id: "A", text: "Copper" },
+      { id: "B", text: "Silver" },
+      { id: "C", text: "Gold" },
+      { id: "D", text: "Aluminum" }
     ],
-    answer: "Rivest Shamir Adleman"
+    answer: "Silver"
   },
   {
     id: "H09",
-    question: "Which rare astronomical event occurred in 1986 and will not return until 2061?",
+    question: "Capital city of Bhutan?",
     options: [
-      { id: "A", text: "Halley's Comet" },
-      { id: "B", text: "Solar Eclipse" },
-      { id: "C", text: "Transit of Venus" },
-      { id: "D", text: "Blue Moon" }
+      { id: "A", text: "Kathmandu" },
+      { id: "B", text: "Thimphu" },
+      { id: "C", text: "Paro" },
+      { id: "D", text: "Punakha" }
     ],
-    answer: "Halley's Comet"
+    answer: "Thimphu"
   },
   {
     id: "H10",
-    question: "Which ancient library was one of the largest and most significant in the ancient world before being destroyed?",
+    question: "Author of the epic 'Paradise Lost'?",
     options: [
-      { id: "A", text: "Library of Alexandria" },
-      { id: "B", text: "Pergamon Library" },
-      { id: "C", text: "Celsus Library" },
-      { id: "D", text: "Ashurbanipal Library" }
+      { id: "A", text: "Milton" },
+      { id: "B", text: "Chaucer" },
+      { id: "C", text: "Shakespeare" },
+      { id: "D", text: "Donne" }
     ],
-    answer: "Library of Alexandria"
+    answer: "Milton"
   },
   {
     id: "H11",
-    question: "In human anatomy, what is the smallest bone in the body?",
+    question: "Branch of math dealing with rates of change?",
     options: [
-      { id: "A", text: "Stapes" },
-      { id: "B", text: "Incus" },
-      { id: "C", text: "Malleus" },
-      { id: "D", text: "Hyoid" }
+      { id: "A", text: "Algebra" },
+      { id: "B", text: "Geometry" },
+      { id: "C", text: "Calculus" },
+      { id: "D", text: "Statistics" }
     ],
-    answer: "Stapes"
+    answer: "Calculus"
   },
   {
     id: "H12",
-    question: "Which mathematical concept is also known as the 'divine proportion'?",
+    question: "Who formulated laws of planetary motion?",
     options: [
-      { id: "A", text: "Pi" },
-      { id: "B", text: "Euler's Number" },
-      { id: "C", text: "Golden Ratio" },
-      { id: "D", text: "Fibonacci Sequence" }
+      { id: "A", text: "Newton" },
+      { id: "B", text: "Galileo" },
+      { id: "C", text: "Kepler" },
+      { id: "D", text: "Copernicus" }
     ],
-    answer: "Golden Ratio"
+    answer: "Kepler"
   },
   {
     id: "H13",
-    question: "Which was the first artificial satellite launched into Earth's orbit?",
+    question: "Main programming language for Android apps?",
     options: [
-      { id: "A", text: "Sputnik 1" },
-      { id: "B", text: "Explorer 1" },
-      { id: "C", text: "Vanguard 1" },
-      { id: "D", text: "Luna 2" }
+      { id: "A", text: "Swift" },
+      { id: "B", text: "Java" },
+      { id: "C", text: "Kotlin" },
+      { id: "D", text: "Python" }
     ],
-    answer: "Sputnik 1"
+    answer: "Kotlin"
   },
   {
     id: "H14",
-    question: "Which desert is considered the oldest in the world?",
+    question: "Turning point battle on Eastern Front in WWII?",
     options: [
-      { id: "A", text: "Sahara" },
-      { id: "B", text: "Kalahari" },
-      { id: "C", text: "Namib" },
-      { id: "D", text: "Gobi" }
+      { id: "A", text: "Stalingrad" },
+      { id: "B", text: "Kursk" },
+      { id: "C", text: "Berlin" },
+      { id: "D", text: "Moscow" }
     ],
-    answer: "Namib"
+    answer: "Stalingrad"
   },
   {
     id: "H15",
-    question: "The Rosetta Stone helped historians decode which ancient writing system?",
+    question: "Chemical formula of ozone?",
     options: [
-      { id: "A", text: "Cuneiform" },
-      { id: "B", text: "Hieroglyphics" },
-      { id: "C", text: "Linear B" },
-      { id: "D", text: "Phoenician Alphabet" }
+      { id: "A", text: "O2" },
+      { id: "B", text: "O3" },
+      { id: "C", text: "CO2" },
+      { id: "D", text: "N2O" }
     ],
-    answer: "Hieroglyphics"
+    answer: "O3"
   },
   {
     id: "H16",
-    question: "Which particle is responsible for giving mass to other particles according to the Standard Model?",
+    question: "Volcano on US-Canada border?",
     options: [
-      { id: "A", text: "Higgs Boson" },
-      { id: "B", text: "Photon" },
-      { id: "C", text: "Gluon" },
-      { id: "D", text: "Neutrino" }
+      { id: "A", text: "St. Helens" },
+      { id: "B", text: "Rainier" },
+      { id: "C", text: "Baker" },
+      { id: "D", text: "Hood" }
     ],
-    answer: "Higgs Boson"
+    answer: "Baker"
   },
   {
     id: "H17",
-    question: "Which ancient city was buried under volcanic ash after the eruption of Mount Vesuvius in 79 AD?",
+    question: "First woman to win Nobel Prize?",
     options: [
-      { id: "A", text: "Pompeii" },
-      { id: "B", text: "Herculaneum" },
-      { id: "C", text: "Ostia" },
-      { id: "D", text: "Carthage" }
+      { id: "A", text: "Marie Curie" },
+      { id: "B", text: "Rosalind Franklin" },
+      { id: "C", text: "Dorothy Hodgkin" },
+      { id: "D", text: "Barbara McClintock" }
     ],
-    answer: "Pompeii"
+    answer: "Marie Curie"
   },
   {
     id: "H18",
-    question: "What is the term for the boundary around a black hole beyond which nothing can escape?",
+    question: "Known as ‘Silver City’ in Mexico?",
     options: [
-      { id: "A", text: "Singularity" },
-      { id: "B", text: "Event Horizon" },
-      { id: "C", text: "Photon Sphere" },
-      { id: "D", text: "Accretion Disk" }
+      { id: "A", text: "Taxco" },
+      { id: "B", text: "Guanajuato" },
+      { id: "C", text: "Zacatecas" },
+      { id: "D", text: "Oaxaca" }
     ],
-    answer: "Event Horizon"
+    answer: "Taxco"
   },
   {
     id: "H19",
-    question: "The Dead Sea Scrolls were discovered in caves near which body of water?",
+    question: "Who is credited for theorem a² + b² = c²?",
     options: [
-      { id: "A", text: "Red Sea" },
-      { id: "B", text: "Dead Sea" },
-      { id: "C", text: "Sea of Galilee" },
-      { id: "D", text: "Mediterranean Sea" }
+      { id: "A", text: "Euclid" },
+      { id: "B", text: "Pythagoras" },
+      { id: "C", text: "Archimedes" },
+      { id: "D", text: "Newton" }
     ],
-    answer: "Dead Sea"
+    answer: "Pythagoras"
   },
   {
     id: "H20",
-    question: "What is the most distant human-made object from Earth as of 2025?",
+    question: "Novel starting with 'Call me Ishmael'?",
     options: [
-      { id: "A", text: "Voyager 1" },
-      { id: "B", text: "Voyager 2" },
-      { id: "C", text: "Pioneer 10" },
-      { id: "D", text: "New Horizons" }
+      { id: "A", text: "Moby-Dick" },
+      { id: "B", text: "Old Man Sea" },
+      { id: "C", text: "Heart Darkness" },
+      { id: "D", text: "Catcher Rye" }
     ],
-    answer: "Voyager 1"
+    answer: "Moby-Dick"
   },
   {
     id: "H21",
-    question: "Which country is home to the world's largest salt flat, Salar de Uyuni?",
+    question: "Powerhouse of the cell?",
     options: [
-      { id: "A", text: "Chile" },
-      { id: "B", text: "Bolivia" },
-      { id: "C", text: "Argentina" },
-      { id: "D", text: "Peru" }
+      { id: "A", text: "Nucleus" },
+      { id: "B", text: "Ribosome" },
+      { id: "C", text: "Mitochondria" },
+      { id: "D", text: "Chloroplast" }
     ],
-    answer: "Bolivia"
+    answer: "Mitochondria"
   },
   {
     id: "H22",
-    question: "Which ancient Greek mathematician is credited with calculating the circumference of the Earth?",
+    question: "Who painted 'Guernica'?",
     options: [
-      { id: "A", text: "Euclid" },
-      { id: "B", text: "Archimedes" },
-      { id: "C", text: "Eratosthenes" },
-      { id: "D", text: "Pythagoras" }
+      { id: "A", text: "Dali" },
+      { id: "B", text: "Picasso" },
+      { id: "C", text: "Matisse" },
+      { id: "D", text: "Goya" }
     ],
-    answer: "Eratosthenes"
+    answer: "Picasso"
   },
   {
     id: "H23",
-    question: "What is the chemical symbol for the element with the highest atomic number discovered so far?",
+    question: "What is 'Pareto efficiency'?",
     options: [
-      { id: "A", text: "Og" },
-      { id: "B", text: "Lv" },
-      { id: "C", text: "Ts" },
-      { id: "D", text: "Nh" }
+      { id: "A", text: "Max resource use" },
+      { id: "B", text: "No one can be better off without worse off" },
+      { id: "C", text: "Wealth equality" },
+      { id: "D", text: "No externalities" }
     ],
-    answer: "Og"
+    answer: "No one can be better off without worse off"
   },
   {
     id: "H24",
-    question: "Which was the first civilization to use a written legal code?",
+    question: "Longest river in Europe?",
     options: [
-      { id: "A", text: "Babylonians" },
-      { id: "B", text: "Sumerians" },
-      { id: "C", text: "Assyrians" },
-      { id: "D", text: "Hittites" }
+      { id: "A", text: "Danube" },
+      { id: "B", text: "Volga" },
+      { id: "C", text: "Rhine" },
+      { id: "D", text: "Elbe" }
     ],
-    answer: "Babylonians"
+    answer: "Volga"
   },
   {
     id: "H25",
-    question: "What is the largest known volcano in the solar system?",
+    question: "Inventor of World Wide Web?",
     options: [
-      { id: "A", text: "Mauna Loa" },
-      { id: "B", text: "Olympus Mons" },
-      { id: "C", text: "Mount Etna" },
-      { id: "D", text: "Tamu Massif" }
+      { id: "A", text: "Tim Berners-Lee" },
+      { id: "B", text: "Vint Cerf" },
+      { id: "C", text: "Marc Andreessen" },
+      { id: "D", text: "Bill Gates" }
     ],
-    answer: "Olympus Mons"
+    answer: "Tim Berners-Lee"
+  },
+  {
+    id: "H26",
+    question: "Lightest noble gas?",
+    options: [
+      { id: "A", text: "Argon" },
+      { id: "B", text: "Neon" },
+      { id: "C", text: "Helium" },
+      { id: "D", text: "Krypton" }
+    ],
+    answer: "Helium"
+  },
+  {
+    id: "H27",
+    question: "Who developed three laws of motion?",
+    options: [
+      { id: "A", text: "Galileo" },
+      { id: "B", text: "Newton" },
+      { id: "C", text: "Einstein" },
+      { id: "D", text: "Tesla" }
+    ],
+    answer: "Newton"
+  },
+  {
+    id: "H28",
+    question: "Which language was deciphered with Behistun Inscription?",
+    options: [
+      { id: "A", text: "Sanskrit" },
+      { id: "B", text: "Cuneiform" },
+      { id: "C", text: "Hieroglyphics" },
+      { id: "D", text: "Phoenician" }
+    ],
+    answer: "Cuneiform"
+  },
+  {
+    id: "H29",
+    question: "Star's apparent motion due to Earth’s rotation?",
+    options: [
+      { id: "A", text: "Parallax" },
+      { id: "B", text: "Axial precession" },
+      { id: "C", text: "Aberration" },
+      { id: "D", text: "Diurnal motion" }
+    ],
+    answer: "Diurnal motion"
+  },
+  {
+    id: "H30",
+    question: "Author of 'Critique of Pure Reason'?",
+    options: [
+      { id: "A", text: "Hume" },
+      { id: "B", text: "Kant" },
+      { id: "C", text: "Descartes" },
+      { id: "D", text: "Locke" }
+    ],
+    answer: "Kant"
+  },
+  {
+    id: "H31",
+    question: "Which element (other than mercury) is liquid at room temp?",
+    options: [
+      { id: "A", text: "Bromine" },
+      { id: "B", text: "Gallium" },
+      { id: "C", text: "Cesium" },
+      { id: "D", text: "Francium" }
+    ],
+    answer: "Bromine"
+  },
+  {
+    id: "H32",
+    question: "Who discovered DNA structure?",
+    options: [
+      { id: "A", text: "Marie Curie" },
+      { id: "B", text: "Watson & Crick" },
+      { id: "C", text: "Franklin" },
+      { id: "D", text: "Mendel" }
+    ],
+    answer: "Watson & Crick"
+  },
+  {
+    id: "H33",
+    question: "Capital of Mongolia?",
+    options: [
+      { id: "A", text: "Ulaanbaatar" },
+      { id: "B", text: "Astana" },
+      { id: "C", text: "Tashkent" },
+      { id: "D", text: "Bishkek" }
+    ],
+    answer: "Ulaanbaatar"
+  },
+  {
+    id: "H34",
+    question: "Which document starts with 'We the People'?",
+    options: [
+      { id: "A", text: "Declaration" },
+      { id: "B", text: "Constitution" },
+      { id: "C", text: "Magna Carta" },
+      { id: "D", text: "Bill of Rights" }
+    ],
+    answer: "Constitution"
+  },
+  {
+    id: "H35",
+    question: "Element with atomic number 79?",
+    options: [
+      { id: "A", text: "Copper" },
+      { id: "B", text: "Gold" },
+      { id: "C", text: "Silver" },
+      { id: "D", text: "Platinum" }
+    ],
+    answer: "Gold"
+  },
+  {
+    id: "H36",
+    question: "‘The Great War’ refers to?",
+    options: [
+      { id: "A", text: "World War I" },
+      { id: "B", text: "Russo-Japanese War" },
+      { id: "C", text: "Korean War" },
+      { id: "D", text: "Vietnam War" }
+    ],
+    answer: "World War I"
+  },
+  {
+    id: "H37",
+    question: "Year Berlin Wall fell?",
+    options: [
+      { id: "A", text: "1987" },
+      { id: "B", text: "1989" },
+      { id: "C", text: "1991" },
+      { id: "D", text: "1993" }
+    ],
+    answer: "1989"
+  },
+  {
+    id: "H38",
+    question: "Largest internal organ?",
+    options: [
+      { id: "A", text: "Heart" },
+      { id: "B", text: "Liver" },
+      { id: "C", text: "Kidneys" },
+      { id: "D", text: "Lungs" }
+    ],
+    answer: "Liver"
+  },
+  {
+    id: "H39",
+    question: "Process where plants lose water vapor?",
+    options: [
+      { id: "A", text: "Photosynthesis" },
+      { id: "B", text: "Transpiration" },
+      { id: "C", text: "Respiration" },
+      { id: "D", text: "Evaporation" }
+    ],
+    answer: "Transpiration"
+  },
+  {
+    id: "H40",
+    question: "Who invented the first practical telephone?",
+    options: [
+      { id: "A", text: "Bell" },
+      { id: "B", text: "Edison" },
+      { id: "C", text: "Tesla" },
+      { id: "D", text: "Marconi" }
+    ],
+    answer: "Bell"
+  },
+  {
+    id: "H41",
+    question: "‘Petrichor’ is the smell of?",
+    options: [
+      { id: "A", text: "Rain on dry earth" },
+      { id: "B", text: "Fresh flowers" },
+      { id: "C", text: "Sea breeze" },
+      { id: "D", text: "Burning wood" }
+    ],
+    answer: "Rain on dry earth"
+  },
+  {
+    id: "H42",
+    question: "Organelle responsible for protein synthesis?",
+    options: [
+      { id: "A", text: "Mitochondria" },
+      { id: "B", text: "Ribosome" },
+      { id: "C", text: "Golgi" },
+      { id: "D", text: "Lysosome" }
+    ],
+    answer: "Ribosome"
+  },
+  {
+    id: "H43",
+    question: "First female Prime Minister in the world?",
+    options: [
+      { id: "A", text: "Thatcher" },
+      { id: "B", text: "Bandaranaike" },
+      { id: "C", text: "Indira Gandhi" },
+      { id: "D", text: "Golda Meir" }
+    ],
+    answer: "Bandaranaike"
+  },
+  {
+    id: "H44",
+    question: "Largest moon of Saturn?",
+    options: [
+      { id: "A", text: "Europa" },
+      { id: "B", text: "Titan" },
+      { id: "C", text: "Callisto" },
+      { id: "D", text: "Ganymede" }
+    ],
+    answer: "Titan"
+  },
+  {
+    id: "H45",
+    question: "Painting technique using small dots?",
+    options: [
+      { id: "A", text: "Pointillism" },
+      { id: "B", text: "Cubism" },
+      { id: "C", text: "Surrealism" },
+      { id: "D", text: "Impressionism" }
+    ],
+    answer: "Pointillism"
+  },
+  {
+    id: "H46",
+    question: "Carrier of electromagnetic force?",
+    options: [
+      { id: "A", text: "Photon" },
+      { id: "B", text: "Gluon" },
+      { id: "C", text: "Neutrino" },
+      { id: "D", text: "Electron" }
+    ],
+    answer: "Photon"
+  },
+  {
+    id: "H47",
+    question: "Sequence where each number is sum of two preceding?",
+    options: [
+      { id: "A", text: "Arithmetic" },
+      { id: "B", text: "Geometric" },
+      { id: "C", text: "Fibonacci" },
+      { id: "D", text: "Harmonic" }
+    ],
+    answer: "Fibonacci"
+  },
+  {
+    id: "H48",
+    question: "Government ruled by small elite group?",
+    options: [
+      { id: "A", text: "Monarchy" },
+      { id: "B", text: "Oligarchy" },
+      { id: "C", text: "Autocracy" },
+      { id: "D", text: "Democracy" }
+    ],
+    answer: "Oligarchy"
+  },
+  {
+    id: "H49",
+    question: "Process where cells divide into identical daughters?",
+    options: [
+      { id: "A", text: "Meiosis" },
+      { id: "B", text: "Mitosis" },
+      { id: "C", text: "Binary fission" },
+      { id: "D", text: "Budding" }
+    ],
+    answer: "Mitosis"
+  },
+  {
+    id: "H50",
+    question: "Who discovered radioactivity?",
+    options: [
+      { id: "A", text: "Marie Curie" },
+      { id: "B", text: "Becquerel" },
+      { id: "C", text: "Rutherford" },
+      { id: "D", text: "Röntgen" }
+    ],
+    answer: "Becquerel"
   }
 ];
