@@ -2,43 +2,25 @@ import {easyQuestions} from "./data/easyQuestions.js"
 import {mediumQuestions} from "./data/mediumQuestions.js"
 import {hardQuestions} from "./data/hardQuestions.js"
 import { triggerConfetti } from "./confetti.js"
+import { preloadAssets, sounds } from "./preloaders.js"
 
 
-// load sound tracks
+initGame()
 
-const sounds = {
-  kbcIntro : new Audio("./public/assets/sounds/kbc-intro.mp3"),
-  kbcNextQuestion : new Audio("./public/assets/sounds/kbc-next-question.mp3"),
-  kbcLock : new Audio("./public/assets/sounds/kbc-lock.mp3"),
-  kbcTimer : new Audio("./public/assets/sounds/kbc-timer.mp3"),
-  kbcAudiencePoll : new Audio("./public/assets/sounds/kbc-audience-poll.mp3"),
-  kbcWrongAnswer : new Audio("./public/assets/sounds/kbc-wrong-answer.mp3"),
-  kbcSuspense : new Audio("./public/assets/sounds/kbc-suspense.mp3"),
-  kbcCorrectAnswer : new Audio("./public/assets/sounds/kbc-correct-answer.mp3"),
-  kbcHelplineSuspense : new Audio("./public/assets/sounds/kbc-suspense1.mp3"),
-  kbcRinging : new Audio("./public/assets/sounds/kbc-ringing.mp3"),
-  kbcFiftyFifty : new Audio("./public/assets/sounds/kbc-fifty-fifty.mp3"),
-  kbcHooter : new Audio("./public/assets/sounds/kbc-hooter.mp3"),
-  kbcSuspense1 : new Audio("./public/assets/sounds/kbc-suspense1.mp3")
-}
 
-// pre load the audio tracks
 
-Object.entries(sounds).forEach(([key, audio]) => {
-  audio.preload = "auto"
-  audio.load()
+async function initGame() {
+    // Wait until all images + sounds are loaded
+  await preloadAssets()
+  console.log("✅ All assets ready! Starting game...")
 
-  // Listen for when it's fully ready
-  audio.addEventListener("canplaythrough", () => {
-    console.log(`${key} is fully preloaded ✅`)
-  })
+  // Hide loader
+  document.getElementById("loader").style.display = "none"
 
-  // (Optional) listen for errors
-  audio.addEventListener("error", () => {
-    console.error(`${key} failed to load ❌`)
-  })
-})
+  // Show app
+  document.getElementById("app").classList.remove("hidden")
 
+// app starts from here
 const curtainL = document.getElementById("curtain-l")
 const curtainR = document.getElementById("curtain-r")
 const helplineContainer = document.getElementById("helpline-container")
@@ -637,3 +619,4 @@ function checkPoint15(){
 // Inital rendering
 
 renderFinalQuestions()
+}
