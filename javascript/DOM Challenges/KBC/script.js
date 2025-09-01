@@ -19,52 +19,8 @@ async function initGame() {
 
   // Show app
   document.getElementById("app").classList.remove("hidden")
- 
 
-// load sound tracks
-
-// const sounds = {
-//   kbcIntro : new Audio("./public/assets/sounds/kbc-intro.mp3"),
-//   kbcNextQuestion : new Audio("./public/assets/sounds/kbc-next-question.mp3"),
-//   kbcLock : new Audio("./public/assets/sounds/kbc-lock.mp3"),
-//   kbcTimer : new Audio("./public/assets/sounds/kbc-timer.mp3"),
-//   kbcAudiencePoll : new Audio("./public/assets/sounds/kbc-audience-poll.mp3"),
-//   kbcWrongAnswer : new Audio("./public/assets/sounds/kbc-wrong-answer.mp3"),
-//   kbcSuspense : new Audio("./public/assets/sounds/kbc-suspense.mp3"),
-//   kbcCorrectAnswer : new Audio("./public/assets/sounds/kbc-correct-answer.mp3"),
-//   kbcHelplineSuspense : new Audio("./public/assets/sounds/kbc-suspense1.mp3"),
-//   kbcRinging : new Audio("./public/assets/sounds/kbc-ringing.mp3"),
-//   kbcFiftyFifty : new Audio("./public/assets/sounds/kbc-fifty-fifty.mp3"),
-//   kbcHooter : new Audio("./public/assets/sounds/kbc-hooter.mp3"),
-//   kbcSuspense1 : new Audio("./public/assets/sounds/kbc-suspense1.mp3")
-// }
-
-
-// const totalAudios = Object.keys(sounds).length;
-// let loadedCount = 0
-
-// // Preload all audios
-// Object.entries(sounds).forEach(([key, audio]) => {
-//   audio.preload = "auto"
-//   audio.load()
-
-//   audio.addEventListener("canplaythrough", () => {
-//     loadedCount++
-//     console.log(`${key} is fully preloaded ✅`)
-
-//     // When all audios are ready → hide loader & show app
-//     if (loadedCount === totalAudios) {
-//       document.getElementById("loader").style.display = "none"
-//       document.getElementById("app").classList.remove("hidden")
-//       console.log("✅ All sounds ready, app started!")
-//     }
-//   });
-
-//   audio.addEventListener("error", () => {
-//     console.error(`${key} failed to load ❌`)
-//   })
-// })
-
+// app starts from here
 const curtainL = document.getElementById("curtain-l")
 const curtainR = document.getElementById("curtain-r")
 const helplineContainer = document.getElementById("helpline-container")
