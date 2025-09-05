@@ -247,7 +247,7 @@ function renderFinalQuestions() {
   finalSet.forEach((item, index) => {
     getHtml += ` <div id="question-container" class="min-w-full flex flex-col items-center px-2 py-4 mb-5">
                     <p class="text-white font-serif"><span id="question-num">${index + 1}. </span><span class="question-text" data-full="${item.question}"></span></p>
-                    <div id=${item.id} class="grid grid-cols-2 [grid-auto-rows:1fr] w-full mt-2 px-1.5 gap-2 option-group">
+                    <div id=${item.id} class="grid grid-cols-2 [grid-auto-rows:1fr] w-full mt-2 px-1.5 gap-2 option-group md:w-7/8">
                         <p id=${item.options[0].id} class="bg-blue-700 text-white text-md py-1 text-center rounded-full cursor-pointer flex items-center justify-center">${item.options[0].text}</p>
                         <p id=${item.options[1].id} class="bg-blue-700 text-white text-md py-1 text-center rounded-full cursor-pointer flex items-center justify-center">${item.options[1].text}</p>
                         <p id=${item.options[2].id} class="bg-blue-700 text-white text-md py-1 text-center rounded-full cursor-pointer flex items-center justify-center">${item.options[2].text}</p> 
